@@ -141,48 +141,61 @@ extension VTextField {
         @Published var validationOptions: [ValidationOption]?
     }
     
+    /// Placeholder text.
     public func title(_ title: String) -> Self {
         self.data.title = title
         return self
     }
     
+    /// Text color.
     public func textColor(_ textColor: Color) -> Self {
         self.data.textColor = textColor
         return self
     }
     
+    /// Background color when text field is not focused.
     public func backgroundColor(_ backgroundColor: Color) -> Self {
         self.data.backgroundColor = backgroundColor
         return self
     }
     
+    /// Background color when text field is focused.
     public func focusedBackgroundColor(_ focusedBackgroundColor: Color) -> Self {
         self.data.focusedBackgroundColor = focusedBackgroundColor
         return self
     }
     
+    /// Border color for text field.
     public func borderColor(_ borderColor: Color) -> Self {
         self.data.borderColor = borderColor
         return self
     }
     
+    /// Border width for text field.
     public func borderLineWidth(_ borderLineWidth: CGFloat) -> Self {
         self.data.borderLineWidth = borderLineWidth
         return self
     }
     
+    /// Corner radius for text field.
     public func cornerRadius(_ cornerRadius: CGFloat) -> Self {
         self.data.cornerRadius = cornerRadius
         return self
     }
     
+    /// Secure field for credential entry.
     public func secure(_ secure: Bool = true) -> Self {
         self.data.secure = secure
         return self
     }
     
-    public func validation(_ validator: Binding<Bool>?, options: [ValidationOption]) -> Self {
-        if options.isEmpty || validator == nil { return self }
+    
+    /// Enable validation for this field.
+    /// - Parameters:
+    ///   - validator: Bool binding value for validation for this field.
+    ///   - options: array of validation rules (can't be empty).
+    public func validation(_ validator: Binding<Bool>, options: [ValidationOption]) -> Self {
+        if options.isEmpty { return self }
         self.data.validator = validator
         self.data.validationOptions = options
         self.validate()
