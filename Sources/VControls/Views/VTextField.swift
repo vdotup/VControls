@@ -36,6 +36,14 @@ public struct VTextField: View {
                         .disableAutocorrection(true)
                 }
                 
+//                if data.secureToggle {
+//                    Button(action: {
+//                        data.secure.toggle()
+//                    }) {
+//                        Image(systemName: data.secure ? "eye.slash" : "eye")
+//                            .accentColor(.gray)
+//                    }
+//                }
                 
                 if data.validator != nil {
                     Image(systemName: data.valid ? "checkmark" : "xmark")
@@ -128,14 +136,23 @@ extension VTextField {
         @Published var title: String = ""
         
         @Published var textColor: Color = .black
+        
+        // - background Color
         @Published var backgroundColor: Color = .init(uiColor: .systemGray6)
         @Published var focusedBackgroundColor: Color = .init(uiColor: .systemGray4)
+        @Published var validBackgroundColor: Color = .init(uiColor: .systemGreen)
+        @Published var invalidBackgroundColor: Color = .init(uiColor: .systemRed)
+        
+        // - border Color
         @Published var borderColor: Color = .init(uiColor: .systemGray)
+        @Published var validBorderColor: Color = .init(uiColor: .systemGray)
+        @Published var invalidBorderColor: Color = .init(uiColor: .systemGray)
         
         @Published var borderLineWidth: CGFloat = 1
         @Published var cornerRadius: CGFloat = 8
         
         @Published var secure: Bool = false
+        @Published var secureToggle: Bool = false
         
         @Published var validator: Binding<Bool>?
         @Published var validationOptions: [ValidationOption]?
@@ -186,6 +203,11 @@ extension VTextField {
     /// Secure field for credential entry.
     public func secure(_ secure: Bool = true) -> Self {
         self.data.secure = secure
+        return self
+    }
+    
+    public func secureToggle(_ secureToggle: Bool = true) -> Self {
+        self.data.secureToggle = secureToggle
         return self
     }
     
