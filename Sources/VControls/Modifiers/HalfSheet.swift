@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+extension UIApplication {
+    var keyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .first(where: { $0 is UIWindowScene })
+            .flatMap({ $0 as? UIWindowScene })?.windows
+            .first(where: \.isKeyWindow)
+    }
+}
+
 extension View {
     public func halfSheet
     <T: View>(isPresented: Binding<Bool>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping () -> T) -> some View {
@@ -30,16 +40,21 @@ struct HalfSheetHelper<T: View>: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIViewController {
         //controller.view.backgroundColor = .clear
+        controller.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(context.coordinator.handleTap)))
         return controller
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         if isPresented {
             let sheetController = CustomHostingController(rootView: sheet)
+            guard let window = UIApplication.shared.keyWindow else { return }
+            guard let rootVC = window.rootViewController else { return }
+            rootVC.present(sheetController, animated: true)
             sheetController.presentationController?.delegate = context.coordinator
-            uiViewController.present(sheetController, animated: true)
         } else {
-            uiViewController.dismiss(animated: true)
+            guard let window = UIApplication.shared.keyWindow else { return }
+            guard let rootVC = window.rootViewController else { return }
+            rootVC.dismiss(animated: true)
         }
     }
     
@@ -55,6 +70,10 @@ struct HalfSheetHelper<T: View>: UIViewControllerRepresentable {
             if let dismiss = parent.onDismiss {
                 dismiss()
             }
+        }
+        
+        @objc func handleTap() {
+            parent.isPresented.toggle()
         }
     }
 }

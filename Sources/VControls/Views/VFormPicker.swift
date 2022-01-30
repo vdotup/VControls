@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct VFormPicker: View {
     
-    @State private var tapped: Bool = true
+    @State private var tapped: Bool = false
     @State private var selection: Int = 0
     
     public init() {
@@ -26,32 +26,21 @@ public struct VFormPicker: View {
             .padding()
             .frame(width: 200, height: 50)
             .background(.gray)
-            //.cornerRadius(10)
             .cornerRadius(10, corners: tapped ? [.topLeft, .topRight] : [.allCorners])
             .onTapGesture {
                 tapped.toggle()
             }
-            
-            
-            if tapped {
-                VStack() {
-                    ScrollView {
-                        ForEach(0..<10) { i in
-                            Text("item \(i)")
-                                .frame(maxWidth: .infinity)
-                                .onTapGesture {
-                                    select(item: i)
-                                }
-                        }
-                    }
-                }
-                .frame(width: 200, height: 100)
-                .background(.green)
-                .cornerRadius(10, corners: [.bottomLeft, .bottomRight])
-                .offset(x: 0, y: 75)
-            }
         }
-        .position(x: 0, y: 0)
+        .popup(isPresented: $tapped) {
+            ZStack {
+                Color.green
+                Button("dismiss", action: {tapped.toggle()})
+            }
+            .frame(width: 200, height: 200, alignment: .center)
+        }
+
+
+        
         
     }
     
