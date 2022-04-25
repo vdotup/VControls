@@ -8,12 +8,14 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "VControls",
-            targets: ["VControls"]),
-        .library(
-            name: "RoundedCorner",
-            targets: ["RoundedCorner"]),
+        .library(name: "HalfSheet", targets: ["HalfSheet"]),
+        .library(name: "Popover", targets: ["Popover"]),
+        .library(name: "RoundedCorner", targets: ["RoundedCorner"]),
+        .library(name: "VFormField", targets: ["VFormField"]),
+        .library(name: "VFormPicker", targets: ["VFormPicker"]),
+        .library(name: "VListButton", targets: ["VListButton"]),
+        .library(name: "VListConfirmationButton", targets: ["VListConfirmationButton"]),
+        .library(name: "VTextField", targets: ["VTextField"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,9 +24,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "VControls"),
-        .target(
-            name: "RoundedCorner")
+        .target(name: "HalfSheet"),
+        .target(name: "Popover"),
+        .target(name: "RoundedCorner"),
+        .target(name: "VFormField"),
+        .target(name: "VFormPicker"),
+        .target(name: "VListButton"),
+        .target(name: "VListConfirmationButton"),
+        .target(name: "VTextField"),
     ]
 )
