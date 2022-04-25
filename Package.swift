@@ -8,14 +8,14 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "HalfSheet", targets: ["HalfSheet"]),
-        .library(name: "Popover", targets: ["Popover"]),
-        .library(name: "RoundedCorner", targets: ["RoundedCorner"]),
-        .library(name: "VFormField", targets: ["VFormField"]),
-        .library(name: "VFormPicker", targets: ["VFormPicker"]),
-        .library(name: "VListButton", targets: ["VListButton"]),
-        .library(name: "VListConfirmationButton", targets: ["VListConfirmationButton"]),
-        .library(name: "VTextField", targets: ["VTextField"]),
+        .library(name: "HalfSheet", targets: ["HalfSheetTarget"]),
+        .library(name: "Popover", targets: ["PopoverTarget"]),
+        .library(name: "RoundedCorner", targets: ["RoundedCornerTarget"]),
+        .library(name: "VFormField", targets: ["VFormFieldTarget"]),
+        .library(name: "VFormPicker", targets: ["VFormPickerTarget"]),
+        .library(name: "VListButton", targets: ["VListButtonTarget"]),
+        .library(name: "VListConfirmationButton", targets: ["VListConfirmationButtonTarget"]),
+        .library(name: "VTextField", targets: ["VTextFieldTarget"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,13 +24,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(name: "HalfSheet", dependencies: [], path: "Sources/HalfSheet"),
-        .target(name: "Popover", dependencies: [], path: "Sources/Popover"),
-        .target(name: "RoundedCorner", dependencies: [], path: "Sources/RoundedCorner"),
-        .target(name: "VFormField", dependencies: [], path: "Sources/VFormField"),
-        .target(name: "VFormPicker", dependencies: [], path: "Sources/VFormPicker"),
-        .target(name: "VListButton", dependencies: [], path: "Sources/VListButton"),
-        .target(name: "VListConfirmationButton", dependencies: [], path: "Sources/VListConfirmationButton"),
-        .target(name: "VTextField", dependencies: [], path: "Sources/VTextField"),
+        .target(name: "HalfSheetTarget", dependencies: []),
+        .target(name: "PopoverTarget", dependencies: []),
+        .target(name: "RoundedCornerTarget", dependencies: []),
+        .target(name: "VFormFieldTarget", dependencies: []),
+        .target(name: "VFormPickerTarget", dependencies: []),
+        .target(name: "VListButtonTarget", dependencies: []),
+        .target(name: "VListConfirmationButtonTarget", dependencies: []),
+        .target(name: "VTextFieldTarget", dependencies: []),
     ]
 )
