@@ -24,13 +24,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(name: "HalfSheet"),
-        .target(name: "Popover"),
-        .target(name: "RoundedCorner"),
-        .target(name: "VFormField"),
-        .target(name: "VFormPicker"),
-        .target(name: "VListButton"),
-        .target(name: "VListConfirmationButton"),
-        .target(name: "VTextField"),
+        .target(name: "HalfSheet", dependencies: [], path: "Sources/HalfSheet"),
+        .target(name: "Popover", dependencies: [], path: "Sources/Popover"),
+        .target(name: "RoundedCorner", dependencies: [], path: "Sources/RoundedCorner"),
+        .target(name: "VFormField", dependencies: [], path: "Sources/VFormField"),
+        .target(name: "VFormPicker", dependencies: [], path: "Sources/VFormPicker"),
+        .target(name: "VListButton", dependencies: [], path: "Sources/VListButton"),
+        .target(name: "VListConfirmationButton", dependencies: [], path: "Sources/VListConfirmationButton"),
+        .target(name: "VTextField", dependencies: [], path: "Sources/VTextField"),
     ]
 )
