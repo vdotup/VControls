@@ -11,6 +11,9 @@ let package = Package(
         .library(
             name: "VControls",
             targets: ["VControls"]),
+        .library(
+            name: "RoundedCorner",
+            targets: ["RoundedCorner"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,9 +24,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "VControls",
-            dependencies: []),
-        .testTarget(
-            name: "VControlsTests",
-            dependencies: ["VControls"]),
+            path: "Sources/VControls/"),
+        .target(
+              name: "RoundedCorner",
+              path: "Sources/RoundedCorner/"),
     ]
 )
