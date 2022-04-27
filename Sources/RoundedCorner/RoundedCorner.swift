@@ -20,6 +20,6 @@ public struct RoundedCorner: Shape {
 
 extension View {
     public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
+        return self.clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }
