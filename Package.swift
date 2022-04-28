@@ -11,7 +11,7 @@ let package = Package(
 //        .library(name: "HalfSheet", targets: ["HalfSheet"]),
 //        .library(name: "ImagePicker", targets: ["ImagePicker"]),
 //        .library(name: "Popover", targets: ["Popover"]),
-        .library(name: "RoundedCorner", targets: ["RoundedCorner"]),
+        .library(name: "RoundedCorner", type: .dynamic, targets: ["RoundedCorner"]),
 //        .library(name: "VFormField", targets: ["VFormField"]),
 //        .library(name: "VFormPicker", targets: ["VFormPicker"]),
 //        .library(name: "VListButton", targets: ["VListButton"]),
