@@ -13,7 +13,7 @@ let package = Package(
 //        .library(name: "Popover", targets: ["Popover"]),
         .library(name: "RoundedCorner", type: .dynamic, targets: ["RoundedCorner"]),
         .library(name: "VFormField", targets: ["VFormField"]),
-//        .library(name: "VFormPicker", targets: ["VFormPicker"]),
+        .library(name: "VFormPicker", targets: ["VFormPicker"]),
 //        .library(name: "VListButton", targets: ["VListButton"]),
 //        .library(name: "VListConfirmationButton", targets: ["VListConfirmationButton"]),
 //        .library(name: "VTextField", targets: ["VTextField"]),
