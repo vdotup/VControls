@@ -11,7 +11,7 @@ let package = Package(
 //        .library(name: "HalfSheet", targets: ["HalfSheet"]),
 //        .library(name: "ImagePicker", targets: ["ImagePicker"]),
 //        .library(name: "Popover", targets: ["Popover"]),
-        .library(name: "RoundedCorner", type: .dynamic, targets: ["RoundedCorner"]),
+        .library(name: "RoundedCorner", targets: ["RoundedCorner"]),
         .library(name: "VFormField", targets: ["VFormField"]),
         .library(name: "VFormPicker", targets: ["VFormPicker"]),
 //        .library(name: "VListButton", targets: ["VListButton"]),
@@ -25,12 +25,12 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(name: "HalfSheet", dependencies: []),
+        .target(name: "HalfSheet", dependencies: [], path: "HalfSheet"),
         .target(name: "ImagePicker", dependencies: []),
         .target(name: "Popover", dependencies: []),
         .target(name: "RoundedCorner", dependencies: []),
-        .target(name: "VFormField", dependencies: []),
-        .target(name: "VFormPicker", dependencies: []),
+        .target(name: "VFormField", dependencies: [], path: "VFormField"),
+        .target(name: "VFormPicker", dependencies: [], path: "VFormPicker"),
         .target(name: "VListButton", dependencies: []),
         .target(name: "VListConfirmationButton", dependencies: []),
         .target(name: "VTextField", dependencies: []),
